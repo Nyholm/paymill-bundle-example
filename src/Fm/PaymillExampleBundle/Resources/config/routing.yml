@@ -1,0 +1,11 @@
+orders_checkout:
+    pattern:  /
+    defaults: { _controller: FmPaymillExampleBundle:Orders:checkout }
+
+orders_complete:
+    pattern:  /complete/{id}
+    defaults: { _controller: FmPaymillExampleBundle:Orders:complete }
+
+orders_thankyou:
+    pattern:  /thankyou/{id}
+    defaults: { _controller: FmPaymillExampleBundle:Orders:thankYou }

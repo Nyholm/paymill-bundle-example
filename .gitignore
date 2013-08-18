@@ -1,0 +1,16 @@
+/app/bootstrap*
+/app/cache/*
+/app/logs/*
+/app/config/parameters.yml
+/app/config/parameters/*
+!/app/config/parameters/parameters.yml.dist
+/vendor/
+
+/web/bundles/
+/web/css/*
+/web/js/*
+/web/images/*
+/web/doc/api/*
+/web/doc/*.html
+
+composer.phar

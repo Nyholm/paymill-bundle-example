@@ -1,0 +1,6 @@
+jms_payment_core:
+    secret: somesecretstring
+
+fm_payment_paymill:
+    api_private_key: paymill_api_private_key
+    api_public_key:  paymill_api_public_key
