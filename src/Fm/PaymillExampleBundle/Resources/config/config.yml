@@ -1,5 +1,5 @@
 jms_payment_core:
-    secret: somesecretstring
+    secret: %secret%
 
 fm_payment_paymill:
     api_private_key: paymill_api_private_key

@@ -65,3 +65,10 @@ swiftmailer:
     username:  %mailer_user%
     password:  %mailer_password%
     spool:     { type: memory }
+
+# PaymillBundle Configuration
+jms_payment_core:
+        secret: %secret%
+fm_payment_paymill:
+    api_private_key: %paymill_api_private_key%
+    api_public_key:  %paymill_api_public_key%

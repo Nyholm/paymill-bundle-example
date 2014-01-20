@@ -41,7 +41,7 @@ class Order
      *
      * @ORM\Column(type="decimal", precision=2, nullable=false)
      */
-    private $total_price;
+    private $amount;
 
     /**
      * Get id
@@ -54,25 +54,25 @@ class Order
     }
 
     /**
-     * Set total_price
+     * Set amount
      *
-     * @param float $totalPrice
+     * @param float $amount
      * @return Order
      */
-    public function setTotalPrice($totalPrice)
+    public function setAmount($amount)
     {
-        $this->total_price = $totalPrice;
+        $this->amount = $amount;
         return $this;
     }
 
     /**
-     * Get total_price
+     * Get amount
      *
      * @return float
      */
-    public function getTotalPrice()
+    public function getAmount()
     {
-        return $this->total_price;
+        return $this->amount;
     }
 
     /**

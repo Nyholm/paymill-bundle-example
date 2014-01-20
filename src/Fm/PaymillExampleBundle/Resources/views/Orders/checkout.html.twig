@@ -1,24 +1,34 @@
 {% extends "::base.html.twig" %}
 
+{% block title %}Checkout{% endblock %}
+
 {% block stylesheets %}
   {{ parent() }}
-  {% stylesheets '@FmPaymentPaymillBundle/Resources/assets/css/paymill.css' %}
-    <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
+
+  {# looks better with bootstrap #}
+  <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css">
+
+  {% stylesheets
+    '@FmPaymentPaymillBundle/Resources/assets/css/paymill.css'
+    '@FmPaymillExampleBundle/Resources/assets/css/checkout.css'
+  %}
+    <link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
   {% endstylesheets %}
 {% endblock %}
 
 {% block javascripts %}
   {{ parent() }}
-  {{ paymill_initialize() }}
+  {{ paymill_initialize(order.amount, order.currency) }}
 {% endblock %}
 
 {% block body %}
   {% form_theme form 'FmPaymentPaymillBundle::form.html.twig' %}
   <form action="{{ path('orders_checkout', {'id': order.id}) }}"
-      method="post" autocomplete="on" novalidate class="paymill">
+      method="post" autocomplete="on" novalidate class="paymill well">
     {{ form_widget(form) }}
 
-    <input type="submit" class="mm-btn-success" value="Buy now" />
+    <input type="submit" class="btn btn-success"
+      value="Pay {{ order.amount }} {{ order.currency }}" />
     <div class="payment-errors"></div>
   </form>
 {% endblock %}

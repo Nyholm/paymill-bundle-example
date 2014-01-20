@@ -1,0 +1,14 @@
+body {
+  background-color: #38bfee;
+}
+
+form.paymill {
+  margin: 10px;
+}
+
+form.paymill .btn {
+  color: #FFFFFF;
+  line-height: 22px;
+  font-size: 13px;
+  font-weight: bold;
+}

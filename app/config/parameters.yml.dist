@@ -2,8 +2,8 @@ parameters:
     database_driver:   pdo_mysql
     database_host:     127.0.0.1
     database_port:     ~
-    database_name:     symfony
-    database_user:     root
+    database_name:     paymill_example
+    database_user:     ~
     database_password: ~
 
     mailer_transport:  smtp
@@ -13,3 +13,6 @@ parameters:
 
     locale:            en
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    paymill_api_private_key: enter_your_paymill_private_key
+    paymill_api_public_key:  enter_your_paymill_public_key

@@ -5,6 +5,7 @@ namespace Fm\PaymillExampleBundle\Controller;
 use Fm\PaymillExampleBundle\Entity\Order;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use JMS\Payment\CoreBundle\PluginController\Result;
 
 class OrdersController extends Controller
 {
@@ -13,16 +14,18 @@ class OrdersController extends Controller
      */
     public function checkoutAction ()
     {
+        $em = $this->getDoctrine()->getManager();
+
         // In a real world app, instead of instantiating an Order, you will
         // probably retrieve it from the database
         $order = new Order;
-        $order->setTotalPrice(50);
+        $order->setAmount(50);
         $order->setCurrency('EUR');
 
         $form = $this->get('form.factory')->create('jms_choose_payment_method', null, array(
             'allowed_methods' => array('paymill'),
             'default_method'  => 'paymill',
-            'amount'          => $order->getTotalPrice(),
+            'amount'          => $order->getAmount(),
             'currency'        => $order->getCurrency()
         ));
 
@@ -101,10 +104,10 @@ class OrdersController extends Controller
      */
     private function getOrder ($id)
     {
-        $order = $this->getDoctrine()->getManager()
-            ->getRepository('FmPaymillExampleBundle:Order')->find($id);
-        if (!$order) {
-            throw new NotFoundHttpException();
+        $repository = $this->getDoctrine()->getManager()
+            ->getRepository('FmPaymillExampleBundle:Order');
+        if (!$order = $repository->find($id)) {
+            throw $this->createNotFoundException("Order $id not found");
         }
 
         return $order;

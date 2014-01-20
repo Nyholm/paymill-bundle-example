@@ -1,4 +1,8 @@
 {% extends "::base.html.twig" %}
 
-<h1>Payment accepted</h1>
-<p>Thank you for you order</p>
+{% block title %}Order confirmed{% endblock %}
+
+{% block body %}
+    <h1>Payment accepted</h1>
+    <p>Order {{ order.id }} is confirmed</p>
+{% endblock %}
