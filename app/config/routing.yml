@@ -1,4 +1,4 @@
-fm_paymill_example:
-    resource: "@FmPaymillExampleBundle/Resources/config/routing.yml"
+memeoirs_paymill_example:
+    resource: "@MemeoirsPaymillExampleBundle/Resources/config/routing.yml"
     prefix:   /
 

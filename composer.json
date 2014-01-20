@@ -19,7 +19,7 @@
         "sensio/framework-extra-bundle": "2.3.*",
         "sensio/generator-bundle": "2.3.*",
         "incenteev/composer-parameter-handler": "~2.0",
-        "fitmemes/paymill-bundle": "@dev"
+        "memeoirs/paymill-bundle": "@dev"
     },
     "scripts": {
         "post-install-cmd": [
@@ -40,7 +40,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "http://github.com/fitmemes/paymill-bundle"
+            "url": "http://github.com/memeoirs/paymill-bundle"
         }
     ],
     "config": {

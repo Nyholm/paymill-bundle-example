@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "70cb5b59e5aec6df8fc63d27e7bbe3bc",
+    "hash": "0713b426acd57fe1ddfba76f9ba44198",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -626,54 +626,6 @@
             "time": "2013-10-29 08:25:52"
         },
         {
-            "name": "fitmemes/paymill-bundle",
-            "version": "dev-master",
-            "target-dir": "Fm/PaymentPaymillBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/fitmemes/paymill-bundle.git",
-                "reference": "4e381bb3c39a66180516bad170dc1564fae359dc"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/fitmemes/paymill-bundle/zipball/4e381bb3c39a66180516bad170dc1564fae359dc",
-                "reference": "4e381bb3c39a66180516bad170dc1564fae359dc",
-                "shasum": ""
-            },
-            "require": {
-                "jms/payment-core-bundle": "1.0.*",
-                "paymill/paymill": "2.0.*",
-                "php": ">=5.3.2",
-                "symfony/framework-bundle": "~2.0"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-0": {
-                    "Fm\\PaymentPaymillBundle": ""
-                }
-            },
-            "license": [
-                "Apache"
-            ],
-            "authors": [
-                {
-                    "name": "Paulo Rodrigues Pinto",
-                    "email": "regularjack@gmail.com"
-                }
-            ],
-            "description": "A Paymill provider for JMSPaymentCoreBundle",
-            "homepage": "https://github.com/fitmemes/paymill-bundle",
-            "keywords": [
-                "payment",
-                "paymill"
-            ],
-            "support": {
-                "source": "https://github.com/fitmemes/paymill-bundle/tree/master",
-                "issues": "https://github.com/fitmemes/paymill-bundle/issues"
-            },
-            "time": "2013-08-24 09:34:37"
-        },
-        {
             "name": "incenteev/composer-parameter-handler",
             "version": "dev-master",
             "target-dir": "Incenteev/ParameterHandler",
@@ -912,6 +864,54 @@
                 "minification"
             ],
             "time": "2013-09-03 12:44:05"
+        },
+        {
+            "name": "memeoirs/paymill-bundle",
+            "version": "dev-master",
+            "target-dir": "Memeoirs/PaymillBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/memeoirs/paymill-bundle.git",
+                "reference": "c4775d85192e6a1c953074ec3ee43224c874711d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/memeoirs/paymill-bundle/zipball/c4775d85192e6a1c953074ec3ee43224c874711d",
+                "reference": "c4775d85192e6a1c953074ec3ee43224c874711d",
+                "shasum": ""
+            },
+            "require": {
+                "jms/payment-core-bundle": "1.0.*",
+                "paymill/paymill": "2.0.*",
+                "php": ">=5.3.2",
+                "symfony/framework-bundle": "~2.0"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Memeoirs\\PaymillBundle": ""
+                }
+            },
+            "license": [
+                "Apache"
+            ],
+            "authors": [
+                {
+                    "name": "Paulo Rodrigues Pinto",
+                    "email": "regularjack@gmail.com"
+                }
+            ],
+            "description": "Paymill payments for Symfony apps",
+            "homepage": "https://github.com/memeoirs/paymill-bundle",
+            "keywords": [
+                "payment",
+                "paymill"
+            ],
+            "support": {
+                "source": "https://github.com/memeoirs/paymill-bundle/tree/master",
+                "issues": "https://github.com/memeoirs/paymill-bundle/issues"
+            },
+            "time": "2014-01-20 23:29:37"
         },
         {
             "name": "monolog/monolog",
@@ -1687,7 +1687,7 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "fitmemes/paymill-bundle": 20
+        "memeoirs/paymill-bundle": 20
     },
     "platform": {
         "php": ">=5.3.3"

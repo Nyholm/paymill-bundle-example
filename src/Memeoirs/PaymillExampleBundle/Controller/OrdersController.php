@@ -1,8 +1,8 @@
 <?php
 
-namespace Fm\PaymillExampleBundle\Controller;
+namespace Memeoirs\PaymillExampleBundle\Controller;
 
-use Fm\PaymillExampleBundle\Entity\Order;
+use Memeoirs\PaymillExampleBundle\Entity\Order;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use JMS\Payment\CoreBundle\PluginController\Result;
@@ -48,7 +48,7 @@ class OrdersController extends Controller
             }
         }
 
-        return $this->render('FmPaymillExampleBundle:Orders:checkout.html.twig', array(
+        return $this->render('MemeoirsPaymillExampleBundle:Orders:checkout.html.twig', array(
             'order' => $order,
             'form'  => $form->createView(),
         ));
@@ -91,7 +91,7 @@ class OrdersController extends Controller
      */
     public function thankYouAction ($id)
     {
-        return $this->render('FmPaymillExampleBundle:Orders:thankyou.html.twig', array(
+        return $this->render('MemeoirsPaymillExampleBundle:Orders:thankyou.html.twig', array(
             'order' => $this->getOrder($id),
         ));
     }
@@ -105,7 +105,7 @@ class OrdersController extends Controller
     private function getOrder ($id)
     {
         $repository = $this->getDoctrine()->getManager()
-            ->getRepository('FmPaymillExampleBundle:Order');
+            ->getRepository('MemeoirsPaymillExampleBundle:Order');
         if (!$order = $repository->find($id)) {
             throw $this->createNotFoundException("Order $id not found");
         }

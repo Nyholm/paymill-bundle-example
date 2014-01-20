@@ -1,7 +1,7 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
-    - { resource: @FmPaymillExampleBundle/Resources/config/config.yml }
+    - { resource: @MemeoirsPaymillExampleBundle/Resources/config/config.yml }
 
 framework:
     #esi:             ~
@@ -31,7 +31,7 @@ twig:
 assetic:
     debug:          %kernel.debug%
     use_controller: false
-    bundles:        ['FmPaymillExampleBundle', 'FmPaymentPaymillBundle']
+    bundles:        ['MemeoirsPaymillExampleBundle', 'MemeoirsPaymillBundle']
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
@@ -69,6 +69,6 @@ swiftmailer:
 # PaymillBundle Configuration
 jms_payment_core:
         secret: %secret%
-fm_payment_paymill:
+memeoirs_paymill:
     api_private_key: %paymill_api_private_key%
     api_public_key:  %paymill_api_public_key%

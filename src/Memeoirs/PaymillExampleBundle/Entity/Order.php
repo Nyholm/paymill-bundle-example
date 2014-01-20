@@ -1,6 +1,6 @@
 <?php
 
-namespace Fm\PaymillExampleBundle\Entity;
+namespace Memeoirs\PaymillExampleBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 

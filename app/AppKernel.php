@@ -18,9 +18,8 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 
             new JMS\Payment\CoreBundle\JMSPaymentCoreBundle(),
-            new Fm\PaymentPaymillBundle\FmPaymentPaymillBundle(),
-
-            new Fm\PaymillExampleBundle\FmPaymillExampleBundle(),
+            new Memeoirs\PaymillBundle\MemeoirsPaymillBundle(),
+            new Memeoirs\PaymillExampleBundle\MemeoirsPaymillExampleBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

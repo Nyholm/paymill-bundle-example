@@ -9,8 +9,8 @@
   <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css">
 
   {% stylesheets
-    '@FmPaymentPaymillBundle/Resources/assets/css/paymill.css'
-    '@FmPaymillExampleBundle/Resources/assets/css/checkout.css'
+    '@MemeoirsPaymillBundle/Resources/assets/css/paymill.css'
+    '@MemeoirsPaymillExampleBundle/Resources/assets/css/checkout.css'
   %}
     <link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
   {% endstylesheets %}
@@ -22,7 +22,7 @@
 {% endblock %}
 
 {% block body %}
-  {% form_theme form 'FmPaymentPaymillBundle::form.html.twig' %}
+  {% form_theme form 'MemeoirsPaymillBundle::form.html.twig' %}
   <form action="{{ path('orders_checkout', {'id': order.id}) }}"
       method="post" autocomplete="on" novalidate class="paymill well">
     {{ form_widget(form) }}
