@@ -26,7 +26,16 @@ class OrdersController extends Controller
             'allowed_methods' => array('paymill'),
             'default_method'  => 'paymill',
             'amount'          => $order->getAmount(),
-            'currency'        => $order->getCurrency()
+            'currency'        => $order->getCurrency(),
+            'predefined_data' => array(
+                'paymill' => array(
+                    'client' => array(
+                        'email'       => 'user2@example.com',
+                        'description' => 'John Doe',
+                    ),
+                    'description' => 'Two baskets of apples'
+                ),
+            ),
         ));
 
         if ('POST' === $this->getRequest()->getMethod()) {

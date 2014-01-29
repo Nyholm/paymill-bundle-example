@@ -1,5 +1,5 @@
 {
-    "name": "symfony/framework-standard-edition",
+    "name": "memeoirs/paymill-bundle-example",
     "license": "MIT",
     "type": "project",
     "description": "The \"Symfony Standard Edition\" distribution",
@@ -21,6 +21,12 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "memeoirs/paymill-bundle": "@dev"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/memeoirs/paymill-bundle"
+        }
+    ],
     "scripts": {
         "post-install-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
@@ -37,12 +43,6 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
         ]
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "http://github.com/memeoirs/paymill-bundle"
-        }
-    ],
     "config": {
         "bin-dir": "bin"
     },
