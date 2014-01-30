@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "94be6545efb11215986d370913ecaf44",
+    "hash": "1dad8fad7fa4c22f5ab8d34416c51612",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -360,31 +360,30 @@
         },
         {
             "name": "doctrine/doctrine-bundle",
-            "version": "dev-master",
+            "version": "v1.2.0",
             "target-dir": "Doctrine/Bundle/DoctrineBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineBundle.git",
-                "reference": "1b76e216240e9ef677af55d4e89e4541b17d7878"
+                "reference": "765b0d87fcc3e839c74817b7211258cbef3a4fb9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/1b76e216240e9ef677af55d4e89e4541b17d7878",
-                "reference": "1b76e216240e9ef677af55d4e89e4541b17d7878",
+                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/765b0d87fcc3e839c74817b7211258cbef3a4fb9",
+                "reference": "765b0d87fcc3e839c74817b7211258cbef3a4fb9",
                 "shasum": ""
             },
             "require": {
-                "doctrine/dbal": ">=2.3,<2.6-dev",
+                "doctrine/dbal": ">=2.2,<2.5-dev",
                 "jdorn/sql-formatter": "~1.1",
                 "php": ">=5.3.2",
                 "symfony/doctrine-bridge": "~2.2",
                 "symfony/framework-bundle": "~2.2"
             },
             "require-dev": {
-                "doctrine/orm": "~2.3",
+                "doctrine/orm": ">=2.2,<2.5-dev",
                 "symfony/validator": "~2.2",
-                "symfony/yaml": "~2.2",
-                "twig/twig": "~1"
+                "symfony/yaml": "~2.2"
             },
             "suggest": {
                 "doctrine/orm": "The Doctrine ORM integration is optional in the bundle.",
@@ -393,7 +392,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.3.x-dev"
+                    "dev-master": "1.2.x-dev"
                 }
             },
             "autoload": {
@@ -427,7 +426,7 @@
                 "orm",
                 "persistence"
             ],
-            "time": "2014-01-28 19:12:18"
+            "time": "2013-03-25 20:13:59"
         },
         {
             "name": "doctrine/inflector",
@@ -868,17 +867,17 @@
         },
         {
             "name": "memeoirs/paymill-bundle",
-            "version": "dev-master",
+            "version": "v0.2.0",
             "target-dir": "Memeoirs/PaymillBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/memeoirs/paymill-bundle.git",
-                "reference": "f615ced1e2541e5a7fac884b15ae3793e97f0de9"
+                "reference": "8a97b4f34ed8b6730d8201a17dc6b25fdb87b7aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/memeoirs/paymill-bundle/zipball/f615ced1e2541e5a7fac884b15ae3793e97f0de9",
-                "reference": "f615ced1e2541e5a7fac884b15ae3793e97f0de9",
+                "url": "https://api.github.com/repos/memeoirs/paymill-bundle/zipball/8a97b4f34ed8b6730d8201a17dc6b25fdb87b7aa",
+                "reference": "8a97b4f34ed8b6730d8201a17dc6b25fdb87b7aa",
                 "shasum": ""
             },
             "require": {
@@ -909,10 +908,10 @@
                 "paymill"
             ],
             "support": {
-                "source": "https://github.com/memeoirs/paymill-bundle/tree/master",
+                "source": "https://github.com/memeoirs/paymill-bundle/tree/v0.2.0",
                 "issues": "https://github.com/memeoirs/paymill-bundle/issues"
             },
-            "time": "2014-01-29 16:58:17"
+            "time": "2014-01-30 16:21:09"
         },
         {
             "name": "monolog/monolog",
@@ -1688,9 +1687,9 @@
 
     ],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "memeoirs/paymill-bundle": 20
-    },
+    "stability-flags": [
+
+    ],
     "platform": {
         "php": ">=5.3.3"
     },

@@ -3,14 +3,13 @@
 namespace Memeoirs\PaymillExampleBundle\Controller;
 
 use Memeoirs\PaymillExampleBundle\Entity\Order;
+use Memeoirs\PaymillBundle\Controller\PaymillController;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use JMS\Payment\CoreBundle\PluginController\Result;
-
-class OrdersController extends Controller
+class OrdersController extends PaymillController
 {
     /**
-     * Render the credit card form and handle POSTed data.
+     * GET: Render the credit card form
+     * POST: Create a Transaction with Paymill
      */
     public function checkoutAction ()
     {
@@ -22,38 +21,26 @@ class OrdersController extends Controller
         $order->setAmount(50);
         $order->setCurrency('EUR');
 
-        $form = $this->get('form.factory')->create('jms_choose_payment_method', null, array(
-            'allowed_methods' => array('paymill'),
-            'default_method'  => 'paymill',
-            'amount'          => $order->getAmount(),
-            'currency'        => $order->getCurrency(),
-            'predefined_data' => array(
-                'paymill' => array(
-                    'client' => array(
-                        'email'       => 'user2@example.com',
-                        'description' => 'John Doe',
-                    ),
-                    'description' => 'Two baskets of apples'
-                ),
+        $form = $this->getForm($order->getAmount(), $order->getCurrency(), array(
+            'client' => array(
+                'email' => 'user2@example.com',
+                'description' => 'John Doe',
             ),
+            'description' => 'Two baskets of apples'
         ));
 
         if ('POST' === $this->getRequest()->getMethod()) {
             $form->bind($this->getRequest());
 
             if ($form->isValid()) {
-                // Create a PaymentInstruction and associate it with the order
-
-                $ppc = $this->get('payment.plugin_controller');
-                $ppc->createPaymentInstruction($instruction = $form->getData());
-
+                $instruction = $this->createPaymentInstruction($form);
                 $order->setPaymentInstruction($instruction);
                 $em->persist($order);
                 $em->flush($order);
 
-                return $this->redirect($this->get('router')->generate('orders_complete', array(
-                    'id' => $order->getId(),
-                )));
+                return $this->completePayment($instruction, 'orders_thankyou', array(
+                    'id' => $order->getId()
+                ));
             }
         }
 
@@ -64,54 +51,11 @@ class OrdersController extends Controller
     }
 
     /**
-     * Complete a payment by creating a transaction using Paymill's API, i.e.
-     * call JMSPaymentCore's approveAndDeposit method.
-     *
-     * @param  integer $id Order id
-     */
-    public function completeAction ($id)
-    {
-        $order       = $this->getOrder($id);
-        $instruction = $order->getPaymentInstruction();
-        $ppc         = $this->get('payment.plugin_controller');
-
-        if (null === $pendingTransaction = $instruction->getPendingTransaction()) {
-            $amount = $instruction->getAmount() - $instruction->getDepositedAmount();
-            $payment = $ppc->createPayment($instruction->getId(), $amount);
-        } else {
-            $payment = $pendingTransaction->getPayment();
-        }
-
-        $result = $ppc->approveAndDeposit($payment->getId(), $payment->getTargetAmount());
-        if (Result::STATUS_SUCCESS === $result->getStatus()) {
-            // payment was successful
-            return $this->redirect($this->get('router')->generate('orders_thankyou', array(
-                'id' => $order->getId(),
-            )));
-        } else {
-            throw new \RuntimeException('Transaction was not successful: '.$result->getReasonCode());
-        }
-    }
-
-    /**
      * Display the "Thank You" page.
      *
-     * @param  integer $id Order id
+     * @param integer $id Order id
      */
     public function thankYouAction ($id)
-    {
-        return $this->render('MemeoirsPaymillExampleBundle:Orders:thankyou.html.twig', array(
-            'order' => $this->getOrder($id),
-        ));
-    }
-
-    /**
-     * Retrieve an Order from the database.
-     *
-     * @param  integer $id Order id
-     * @return Order
-     */
-    private function getOrder ($id)
     {
         $repository = $this->getDoctrine()->getManager()
             ->getRepository('MemeoirsPaymillExampleBundle:Order');
@@ -119,6 +63,8 @@ class OrdersController extends Controller
             throw $this->createNotFoundException("Order $id not found");
         }
 
-        return $order;
+        return $this->render('MemeoirsPaymillExampleBundle:Orders:thankyou.html.twig', array(
+            'order' => $order,
+        ));
     }
 }

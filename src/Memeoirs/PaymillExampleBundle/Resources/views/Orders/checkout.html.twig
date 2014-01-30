@@ -29,6 +29,7 @@
 
     <input type="submit" class="btn btn-success"
       value="Pay {{ order.amount }} {{ order.currency }}" />
-    <div class="payment-errors"></div>
+
+    {{ form_errors(form) }}
   </form>
 {% endblock %}
