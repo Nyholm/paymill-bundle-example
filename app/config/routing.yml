@@ -2,3 +2,5 @@ memeoirs_paymill_example:
     resource: "@MemeoirsPaymillExampleBundle/Resources/config/routing.yml"
     prefix:   /
 
+memeoirs_paymill:
+    resource: "@MemeoirsPaymillBundle/Resources/config/routing.yml"

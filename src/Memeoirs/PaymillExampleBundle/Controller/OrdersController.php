@@ -21,7 +21,7 @@ class OrdersController extends PaymillController
         $order->setAmount(50);
         $order->setCurrency('EUR');
 
-        $form = $this->getForm($order->getAmount(), $order->getCurrency(), array(
+        $form = $this->getPaymillForm($order->getAmount(), $order->getCurrency(), array(
             'client' => array(
                 'email' => 'user2@example.com',
                 'description' => 'John Doe',
