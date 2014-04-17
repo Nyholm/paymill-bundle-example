@@ -3,7 +3,7 @@
 Exmple Symfony app that uses [paymill-bundle](https://github.com/memeoirs/paymill-bundle) to process payments.
 
 ## Setup
-First enter your database and paymill credentials in `parameters.yml`. Then run:
+First enter your database and paymill credentials in `app/config/parameters.yml`. Then run:
 
     composer install
     app/console doctrine:database:create
